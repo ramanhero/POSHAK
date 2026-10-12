@@ -3116,7 +3116,42 @@ input.search__input {
   font-display: swap;
 }
 
-/* 1. Global Background #F1EDE7 */
+/* =========================================================
+   SÈLOOM UNIFIED DESIGN SYSTEM
+   Background: #F1EDE7 | Typography: TBJOneMoreModernSans | Accent: #111111
+   ========================================================= */
+
+/* 1. Global CSS Variables & Canvas */
+:root {
+  --color-background: #F1EDE7 !important;
+  --color-background-rgb: 241, 237, 231 !important;
+  --color-background-2: #F1EDE7 !important;
+  --gradient-background: #F1EDE7 !important;
+  --color-heading: #111111 !important;
+  --color-heading-rgb: 17, 17, 17 !important;
+  --color-text: #111111 !important;
+  --color-text-rgb: 17, 17, 17 !important;
+  --color-foreground: #111111 !important;
+  --color-foreground-rgb: 17, 17, 17 !important;
+  --color-border: rgba(0, 0, 0, 0.1) !important;
+  --color-body: #111111 !important;
+  --height-bar: 0px !important;
+}
+
+/* Announcement Bar: permanently eliminated */
+.section-announcement-bar,
+#shopify-section-sections--27862675849367__announcement_bar_gikKqa,
+announcement-bar,
+.announcement-bar {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Global Background and Base Text Color */
 html,
 body,
 #MainContent,
@@ -3126,7 +3161,24 @@ main,
 section,
 [class*="color-scheme-"] {
   background-color: #F1EDE7 !important;
-  color: #111111;
+  color: #111111 !important;
+}
+
+/* Shopify Color Scheme Overrides */
+[class*="color-scheme-"] {
+  --color-background: #F1EDE7 !important;
+  --color-background-rgb: 241, 237, 231 !important;
+  --color-background-2: #F1EDE7 !important;
+  --gradient-background: #F1EDE7 !important;
+  --color-heading: #111111 !important;
+  --color-heading-rgb: 17, 17, 17 !important;
+  --color-text: #111111 !important;
+  --color-text-rgb: 17, 17, 17 !important;
+  --color-border: rgba(0, 0, 0, 0.1) !important;
+}
+
+:where(.h0, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h7, .heading) {
+  color: #111111 !important;
 }
 
 /* 2. Global Switchblade Typography */
@@ -3143,11 +3195,266 @@ h1, h2, h3, h4, h5, h6,
 .card__heading, .product-card__title,
 .footer__block-heading, .menu-list-footer a,
 .drawer__heading, .product__tax,
-.product-item__title, .product__info-container * {
+.product-item__title, .product__info-container *,
+.collapsible-heading, .collection-intro__heading, .collection-intro__description,
+.pg-topbar, .pg-title, .pg-price, .pgr-heading, .pgr-title, .pgr-price,
+[class*="ai-page-nav"], [class*="ai-product-info"], [class*="ai-feature-title"] {
   font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
-/* 3. Brunello Cucinelli Product Hover Zoom */
+/* 3. Sub-Navbar Page Navigation (BLURG-ORIGINALS / BLURG-SELECTS) */
+[id*="pgnav-"],
+[class*="ai-page-nav-container"],
+[class*="ai-page-nav-inner"] {
+  background-color: #F1EDE7 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: none !important;
+}
+
+[class*="ai-page-nav-link"] {
+  color: #111111 !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background-color: transparent !important;
+}
+
+[class*="ai-page-nav-link"]:hover,
+[class*="ai-page-nav-link"].active {
+  color: #000000 !important;
+}
+
+[class*="ai-page-nav-link"]::after {
+  background-color: #000000 !important;
+}
+
+/* 4. Collection Pages Design Consistency */
+.collection-intro,
+[class*="collection-intro--"] {
+  background-color: #F1EDE7 !important;
+  padding-top: 36px !important;
+  padding-bottom: 28px !important;
+}
+
+.collection-intro__heading,
+[class*="collection-intro__heading"] {
+  color: #111111 !important;
+}
+
+.collection-intro__count,
+[class*="collection-intro__count"] {
+  background-color: #111111 !important;
+  border: 1px solid #111111 !important;
+  color: #F1EDE7 !important;
+}
+
+.collection-intro__description,
+[class*="collection-intro__description"],
+.collection-intro__description p {
+  color: #222222 !important;
+}
+
+[class*="pg-section-"] {
+  background-color: #F1EDE7 !important;
+}
+
+[class*="pg-topbar-"] {
+  background-color: #F1EDE7 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #111111 !important;
+}
+
+[class*="pg-topbar-"] button,
+[class*="pg-topbar-"] select,
+[class*="pg-topbar-"] .pg-grid-toggle-label {
+  color: #111111 !important;
+}
+
+[class*="pg-topbar-divider-"] {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.pg-img-wrap,
+[class*="pg-img-wrap"] {
+  background-color: transparent !important;
+}
+
+.pg-title,
+[class*="pg-title"],
+.pg-price,
+[class*="pg-price"] {
+  color: #111111 !important;
+}
+
+[class*="pg-filter-drawer-"] {
+  background-color: #F1EDE7 !important;
+  color: #111111 !important;
+}
+
+[class*="pg-filter-drawer-"] * {
+  color: #111111 !important;
+}
+
+[class*="pg-filter-drawer-"] select,
+[class*="pg-filter-drawer-"] input {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+.facets-container,
+.facets__wrapper,
+.facets__disclosure,
+.facets__summary,
+.facets__header,
+.facets__item,
+.facets__item label {
+  color: #111111 !important;
+}
+
+.collection-hero__title,
+.collection-hero__description {
+  color: #111111 !important;
+}
+
+/* 5. Product Pages Design Consistency */
+[class*="ai-product-info-container-"] {
+  background-color: transparent !important;
+}
+
+[class*="ai-product-info-name-"] {
+  color: #111111 !important;
+}
+
+[class*="ai-product-info-price-"] {
+  color: #111111 !important;
+}
+
+.product__title,
+.product-title,
+.product__text,
+.pro-description,
+.product__tax,
+.price,
+.price-item,
+.price__regular,
+.price__sale {
+  color: #111111 !important;
+}
+
+.heading-style,
+.form__label,
+legend,
+.option_value,
+.variant-picker label,
+.variant-picker legend {
+  color: #111111 !important;
+}
+
+.size-guide,
+.size-guide-trigger,
+[href*="size-guide"],
+[class*="sc-unit-btn"],
+[class*="sc-how-title"] {
+  color: #111111 !important;
+}
+
+.collapsible-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.collapsible-heading,
+.collapsible-row__summary,
+summary.collapsible-row__summary,
+.collapsible-row summary {
+  color: #111111 !important;
+}
+
+.collapsible-row svg,
+.collapsible-row .icon,
+.collapsible-row .icon-down {
+  color: #111111 !important;
+  stroke: #111111 !important;
+}
+
+.collapsible-row__content,
+.faq_content-inner,
+.faq_content-inner p,
+.collapsible-row p {
+  color: #222222 !important;
+}
+
+.share-heading,
+.dk__share-block,
+.share-button {
+  color: #111111 !important;
+  background-color: transparent !important;
+}
+
+[class*="pgr-section-"] {
+  background-color: #F1EDE7 !important;
+}
+
+[class*="pgr-heading-"] {
+  color: #111111 !important;
+}
+
+.pgr-img-wrap,
+[class*="pgr-img-wrap"] {
+  background-color: transparent !important;
+}
+
+.pgr-title,
+[class*="pgr-title"] {
+  color: #111111 !important;
+}
+
+.pgr-price,
+[class*="pgr-price"] {
+  color: #111111 !important;
+}
+
+[class*="ai-feature-points-"] {
+  background-color: #F1EDE7 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[class*="ai-feature-title-"],
+[class*="ai-feature-text-"] {
+  color: #111111 !important;
+}
+
+.scm-tab,
+.scm-tab.active {
+  color: #111111 !important;
+}
+
+/* Footer across all pages */
+.footer,
+.section-footer,
+.footer__content-top,
+.footer__content-bottom {
+  background-color: #F1EDE7 !important;
+  color: #111111 !important;
+}
+
+.footer__block-heading,
+.footer__heading,
+.footer h3,
+.footer span,
+.footer a,
+.menu-list-footer a,
+.copyright__content,
+.copyright__content a {
+  color: #111111 !important;
+}
+
+.copyright__content {
+  color: #666666 !important;
+}
+
+/* 6. Brunello Cucinelli Product Hover Zoom */
 .collection-showcase__tile-img,
 .collection-showcase__promo,
 .card__media,
@@ -3155,7 +3462,11 @@ h1, h2, h3, h4, h5, h6,
 .product-item .media,
 .product-card__image-wrapper,
 .product__media-item,
-.product__media {
+.product__media,
+.pg-img-wrap,
+[class*="pg-img-wrap"],
+.pgr-img-wrap,
+[class*="pgr-img-wrap"] {
   overflow: hidden !important;
 }
 
@@ -3166,9 +3477,10 @@ h1, h2, h3, h4, h5, h6,
 .product-item img,
 .product-card img,
 .product-item__media img,
-.card-wrapper:hover .card__media img,
-.product-item:hover img,
-.product-card:hover img {
+.pg-img-wrap img,
+[class*="pg-img-wrap"] img,
+.pgr-img-wrap img,
+[class*="pgr-img-wrap"] img {
   transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important;
   will-change: transform;
 }
@@ -3178,8 +3490,12 @@ h1, h2, h3, h4, h5, h6,
 .card-wrapper:hover .card__media img,
 .card:hover .card__media img,
 .product-item:hover img,
-.product-card:hover img {
-  transform: scale(1.06) !important;
+.product-card:hover img,
+[class*="pg-card"]:hover .pg-img-wrap img,
+[class*="pgr-card"]:hover .pgr-img-wrap img,
+.pg-img-wrap:hover img,
+.pgr-img-wrap:hover img {
+  transform: scale(1.055) !important;
 }
 
 /* 4. Universal Drawer Overlay Fix */
