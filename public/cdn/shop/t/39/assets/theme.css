@@ -3227,6 +3227,35 @@ h1, h2, h3, h4, h5, h6,
   background-color: #000000 !important;
 }
 
+/* Category Navigation Bar across all collection pages */
+.section-category-nav-tabs,
+.cat-nav-wrap,
+[id*="cat-nav-"] {
+  background-color: #F1EDE7 !important;
+}
+
+.cat-nav-bar {
+  background-color: #F1EDE7 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.cat-nav-tab {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #666666 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.cat-nav-tab:hover,
+.cat-nav-tab.is-active {
+  color: #000000 !important;
+}
+
+.cat-nav-tab.is-active::after {
+  background-color: #000000 !important;
+}
+
 /* 4. Collection Pages Design Consistency */
 .collection-intro,
 [class*="collection-intro--"] {
@@ -3284,6 +3313,106 @@ h1, h2, h3, h4, h5, h6,
 .pg-price,
 [class*="pg-price"] {
   color: #111111 !important;
+}
+
+/* Standard Collection Product Cards (.card-product-simple) */
+.card-product-simple__image-wrap {
+  background-color: transparent !important;
+}
+
+.card-product-simple__title {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #111111 !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+}
+
+.card-product-simple__price {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #111111 !important;
+  font-weight: 600 !important;
+}
+
+.badge-new-pill,
+.badge-sale-pill {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Filters, Facets, Sorter & Count */
+.facets-toolbar,
+.facet-filters,
+.collection-count {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #111111 !important;
+  text-transform: uppercase !important;
+}
+
+.collapsible-horizontal-row .collapsible-row__summary {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background-color: #F1EDE7 !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  color: #111111 !important;
+  text-transform: uppercase !important;
+}
+
+.collapsible-horizontal-row .collapsible-row__summary:hover {
+  border-color: #000000 !important;
+}
+
+.horizontal_filter-content,
+.select-custom__content {
+  background-color: #F1EDE7 !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.horizontal_filter-content *,
+.select-custom__content * {
+  color: #111111 !important;
+}
+
+.facets__item-label,
+.filter-sort {
+  color: #111111 !important;
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.filter-sort:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #000000 !important;
+}
+
+.filter-sort[selected="selected"] {
+  font-weight: 700 !important;
+  color: #000000 !important;
+}
+
+/* Mobile Filter Bar & Drawer */
+.mfs-bar {
+  background-color: #F1EDE7 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.mfs-btn {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  text-transform: uppercase !important;
+}
+
+.mfs-drawer__panel {
+  background-color: #F1EDE7 !important;
+  color: #111111 !important;
+}
+
+/* Waitlist & countdown banner typography */
+.fullscreen-form-section__countdown-wrap *,
+.fullscreen-form-section__below-text,
+.countdown-heading,
+.fullscreen-form-section__cta {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 [class*="pg-filter-drawer-"] {
@@ -3466,7 +3595,8 @@ summary.collapsible-row__summary,
 .pg-img-wrap,
 [class*="pg-img-wrap"],
 .pgr-img-wrap,
-[class*="pgr-img-wrap"] {
+[class*="pgr-img-wrap"],
+.card-product-simple__image-wrap {
   overflow: hidden !important;
 }
 
@@ -3480,7 +3610,8 @@ summary.collapsible-row__summary,
 .pg-img-wrap img,
 [class*="pg-img-wrap"] img,
 .pgr-img-wrap img,
-[class*="pgr-img-wrap"] img {
+[class*="pgr-img-wrap"] img,
+.card-product-simple__image-wrap img {
   transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important;
   will-change: transform;
 }
@@ -3494,7 +3625,9 @@ summary.collapsible-row__summary,
 [class*="pg-card"]:hover .pg-img-wrap img,
 [class*="pgr-card"]:hover .pgr-img-wrap img,
 .pg-img-wrap:hover img,
-.pgr-img-wrap:hover img {
+.pgr-img-wrap:hover img,
+.card-product-simple:hover .card-product-simple__image-wrap img,
+.product-item:hover .card-product-simple__image-wrap img {
   transform: scale(1.055) !important;
 }
 

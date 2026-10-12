@@ -84,7 +84,10 @@ const STATIC_VIEWS = {
   '/policies/privacy-policy': 'views/policy_privacy.html',
   '/policies/terms-of-service': 'views/policy_terms.html',
   '/policies/contact-information': 'views/policy_contact_info.html',
-  '/cart': 'views/index.html'
+  '/cart': 'views/index.html',
+  '/account': 'views/index.html',
+  '/account/login': 'views/index.html',
+  '/account/register': 'views/index.html'
 };
 
 function serveFileWithRange(req, res, filePath) {
