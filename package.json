@@ -1,0 +1,12 @@
+{
+  "name": "blurgvillage-replica",
+  "version": "1.0.0",
+  "description": "Pixel-perfect replica of blurgvillage.com",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
