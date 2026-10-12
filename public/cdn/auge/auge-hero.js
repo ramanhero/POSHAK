@@ -1,6 +1,6 @@
 /**
- * SÈLOOM HERO SECTION - CURSOR IMAGE TRAIL
- * Authentic replication of nightkidz.shop/us cursor image trail
+ * SÈLOOM HERO SECTION - AUGE XP PRELOADER & TEXT REVEAL & CURSOR IMAGE TRAIL
+ * Authentic replication of https://auge-xp.com/
  */
 
 (function () {
@@ -32,9 +32,146 @@
     img.src = src;
   });
 
+  /**
+   * Character Cipher / Text Scramble Decryptor
+   */
+  function runTextScramble(element, targetText, duration, chars) {
+    if (!element) return;
+    const glyphs = chars || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const startTime = performance.now();
+    const len = targetText.length;
+
+    function frame(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const resolvedIndex = Math.floor(progress * len);
+
+      let output = '';
+      for (let i = 0; i < len; i++) {
+        const char = targetText[i];
+        if (char === ' ' || char === '®' || char === '©' || char === '-' || char === '.' || char === ',') {
+          output += char;
+        } else if (i < resolvedIndex) {
+          output += char;
+        } else {
+          output += glyphs[Math.floor(Math.random() * glyphs.length)];
+        }
+      }
+      element.textContent = output;
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        element.textContent = targetText;
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  /**
+   * Auge XP Color-Inverting Curtain Preloader
+   */
+  function runPreloader(onDone) {
+    const preloader = document.getElementById('seloom-preloader');
+    const curtain = document.getElementById('seloom-preloader-curtain');
+    const counter = document.getElementById('seloom-preloader-counter');
+    const sub = document.getElementById('seloom-preloader-sub');
+
+    if (!preloader) {
+      if (typeof onDone === 'function') onDone();
+      return;
+    }
+
+    // Lock page scroll during preloader presentation
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
+    const duration = 1800; // ms
+    const startTime = performance.now();
+    const targetSub = 'SÈLOOM Fashion';
+    let scrambleStarted = false;
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+
+      // Counter: 000 to 100
+      const currentCount = Math.floor(progress * 100);
+      if (counter) {
+        counter.textContent = String(currentCount).padStart(3, '0');
+      }
+
+      // Rising black curtain height: 0% to 100%
+      if (curtain) {
+        curtain.style.height = (progress * 100).toFixed(2) + '%';
+      }
+
+      // Start subtitle scramble around 20% progress
+      if (!scrambleStarted && progress >= 0.15 && sub) {
+        scrambleStarted = true;
+        runTextScramble(sub, targetSub, 1000, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        // Complete counter & curtain at 100%
+        if (counter) counter.textContent = '100';
+        if (curtain) curtain.style.height = '100%';
+        if (sub) sub.textContent = targetSub;
+
+        // Auge hold period at 100% (160ms) before curtain lift
+        setTimeout(function () {
+          // Trigger slide-up exit
+          preloader.classList.add('is-exited');
+
+          // Trigger hero reveal slightly after curtain lift starts for seamless overlap
+          setTimeout(function () {
+            if (typeof onDone === 'function') onDone();
+          }, 140);
+
+          // Clean up styles and unhide scroll after curtain animation finishes
+          setTimeout(function () {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            preloader.style.display = 'none';
+          }, 950);
+        }, 160);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  /**
+   * Hero text reveal with Auge masked transitions & cipher scramble
+   */
+  function revealHeroText() {
+    const heroWrapper = document.getElementById('auge-xp-hero-section');
+    if (!heroWrapper) return;
+
+    heroWrapper.classList.add('is-revealed');
+
+    // Scramble decrypt studio label "SÈLOOM ORIGINALS®"
+    const labelEl = document.getElementById('auge-studio-label');
+    if (labelEl) {
+      runTextScramble(labelEl, 'SÈLOOM ORIGINALS®', 950);
+    }
+  }
+
+  /**
+   * Main Hero Initialization
+   */
   function initSeloomHero() {
     const heroWrapper = document.getElementById('auge-xp-hero-section');
     const trailContainer = document.getElementById('seloom-trail-container');
+
+    // Run Preloader, then reveal hero
+    runPreloader(function () {
+      revealHeroText();
+    });
+
     if (!heroWrapper || !trailContainer) return;
 
     let imgIndex = 0;

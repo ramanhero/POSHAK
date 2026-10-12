@@ -2496,10 +2496,22 @@ first.parentNode.insertBefore(script, first);
   data-shs-beacon-endpoint="https:/api/collect"
 ></script>
 <meta name="shopify-y" content="4d284d39-bfe1-4a27-8acc-6408c2d43460" data-expiration="1823299427000"><meta name="shopify-s" content="717bfe24-3fdf-4a7d-80f8-47ca69985698" data-expiration="1791743627000">
-<link rel="stylesheet" href="/cdn/auge/auge-hero.css?v=4.0" />
+<link rel="stylesheet" href="/cdn/auge/auge-hero.css?v=5.0" />
 </head>
 
   <body class="purity-ver_1_0_9 gradient hover_zoom product-hover_fade template-index smooth-sl motion-all_screens">
+    <!-- AUGE XP COLOR-INVERTING PRELOADER -->
+    <div id="seloom-preloader" class="seloom-preloader" aria-hidden="true">
+      <div class="seloom-preloader-curtain" id="seloom-preloader-curtain"></div>
+      <div class="seloom-preloader-content">
+        <div class="seloom-preloader-center">
+          <div class="seloom-preloader-wordmark">SÈLOOM</div>
+          <div class="seloom-preloader-sub" id="seloom-preloader-sub">SÈLOOM Fashion</div>
+        </div>
+        <div class="seloom-preloader-counter" id="seloom-preloader-counter">000</div>
+      </div>
+    </div>
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       Skip to content
     </a>
@@ -3407,7 +3419,9 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
 
       <!-- Center Colossal SÈLOOM Wordmark -->
       <div class="seloom-hero-center">
-        <h1 class="seloom-display-wordmark" aria-label="SÈLOOM">SÈLOOM</h1>
+        <div class="seloom-wordmark-mask">
+          <h1 class="seloom-display-wordmark" id="seloom-display-wordmark" aria-label="SÈLOOM">SÈLOOM</h1>
+        </div>
       </div>
 
       <!-- Bottom Studio Typography & Brand Info -->
@@ -3415,9 +3429,16 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
         <div class="auge-bottom-grid">
           <!-- Col 2: Brand Description -->
           <div class="auge-col-right">
-            <h2 class="auge-studio-label">SÈLOOM ORIGINALS©</h2>
-            <p class="auge-studio-desc">
-              An independent contemporary apparel label engineering distinctive silhouettes through thoughtful tailoring, premium heavyweight fabrics, and uncompromising design.
+            <div class="auge-label-mask">
+              <h2 class="auge-studio-label" id="auge-studio-label">SÈLOOM ORIGINALS®</h2>
+            </div>
+            <p class="auge-studio-desc" id="auge-studio-desc">
+              <span class="auge-line-mask"><span class="auge-line-inner">AN INDEPENDENT CONTEMPORARY</span></span>
+              <span class="auge-line-mask"><span class="auge-line-inner">APPAREL LABEL ENGINEERING</span></span>
+              <span class="auge-line-mask"><span class="auge-line-inner">DISTINCTIVE SILHOUETTES THROUGH</span></span>
+              <span class="auge-line-mask"><span class="auge-line-inner">THOUGHTFUL TAILORING, PREMIUM</span></span>
+              <span class="auge-line-mask"><span class="auge-line-inner">HEAVYWEIGHT FABRICS, AND</span></span>
+              <span class="auge-line-mask"><span class="auge-line-inner">UNCOMPROMISING DESIGN.</span></span>
             </p>
           </div>
         </div>
@@ -3451,7 +3472,7 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
         </footer>
       </div>
     </section>
-    <script src="/cdn/auge/auge-hero.js?v=4.0"></script>
+    <script src="/cdn/auge/auge-hero.js?v=5.0"></script>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       <section id="shopify-section-template--27862681092247__page_navigation_jdWFQd" class="shopify-section section-page-navigation">
 
