@@ -830,8 +830,12 @@
         const isActive = idx === activeIndex;
         ts.classList.toggle('active-thumb', isActive);
         ts.classList.toggle('swiper-slide-thumb-active', isActive);
-        if (isActive) {
-          ts.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        if (isActive && smooth) {
+          const parent = ts.parentElement;
+          if (parent && parent.scrollWidth > parent.clientWidth) {
+            const offset = ts.offsetLeft - (parent.clientWidth / 2) + (ts.clientWidth / 2);
+            parent.scrollTo({ left: offset, behavior: 'smooth' });
+          }
         }
       });
 
