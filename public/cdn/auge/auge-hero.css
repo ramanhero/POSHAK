@@ -57,7 +57,7 @@
   z-index: 50;
   margin: 0;
   padding: 0;
-  cursor: crosshair;
+  cursor: default;
 }
 
 /* 1. Top Right Logo */

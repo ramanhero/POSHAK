@@ -1432,10 +1432,7 @@ blockquote {
     scale: 1;
   }
   :where(.modal-overlay) {
-    cursor:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none"><rect width="60" height="60" fill="%23fff" rx="30"/><path fill="%231D1D1F" d="M22.348 23.93a1.02 1.02 0 0 1-.348-.778c0-.321.116-.598.348-.83.214-.215.481-.322.803-.322.32 0 .588.107.802.322L30 28.379l6.047-6.057c.214-.215.481-.322.803-.322.32 0 .588.107.802.322.232.232.348.509.348.83 0 .304-.116.563-.348.778l-6.047 6.057 6.047 6.057c.232.232.348.509.348.83 0 .304-.116.563-.348.778a1.046 1.046 0 0 1-.803.348c-.32 0-.588-.116-.802-.348L30 31.622l-6.047 6.03a1.046 1.046 0 0 1-.802.348c-.322 0-.59-.116-.803-.348a1.02 1.02 0 0 1-.348-.778c0-.321.116-.598.348-.83l6.047-6.057-6.047-6.057Z"/></svg>')
-        30 30,
-      pointer;
+    cursor: pointer;
   }
   .zoom-in {
     cursor:
@@ -3282,4 +3279,27 @@ menu-drawer .modal-inner {
   opacity: 0 !important;
   transition-delay: 0.1s !important;
 }
+
+/* 6. Standard clean system cursor site-wide (no crosshair or SVG cursor on reload) */
+body,
+html,
+.auge-hero-wrapper,
+.seloom-trail-container,
+.seloom-hero-center,
+.seloom-display-wordmark,
+.auge-hero-bottom,
+.auge-hero-bottom * {
+  cursor: default !important;
+}
+
+modal-overlay,
+.modal-overlay,
+.cursor-crosshair {
+  cursor: pointer !important;
+}
+
+a, button, [role="button"], input[type="submit"], input[type="button"], .pointer, [is="button-close-model"] {
+  cursor: pointer !important;
+}
+
 

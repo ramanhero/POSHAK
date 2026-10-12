@@ -1052,7 +1052,7 @@
         width: 100% !important;
         max-width: 100% !important;
         position: relative !important;
-        cursor: crosshair !important;
+        cursor: default !important;
       }
 
       /* Product Media Gallery Container Stacking Context */
