@@ -34,6 +34,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'farnhamDisplay';
+  src: url('/cdn/auge/FarnhamDisplay_LightItal.woff2') format('woff2');
+  font-weight: 300 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --auge-bg: #F1EDE7;
   --auge-fg: #000000;
@@ -141,93 +149,141 @@
   }
 }
 
-/* 3. Central SÈLOOM Display Typography */
 /* =========================================================
-   AUGE XP STYLE COLOR-INVERTING PRELOADER
+   EXACT AUGE XP COLOR-INVERTING PRELOADER
    ========================================================= */
-.seloom-preloader {
+.auge-loader-root {
+  pointer-events: none;
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 9999999;
-  background-color: #F1EDE7;
   overflow: hidden;
   user-select: none;
-  pointer-events: all;
-  will-change: transform;
-  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.seloom-preloader.is-exited {
-  transform: translateY(-100%);
-  pointer-events: none;
+.auge-loader-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--auge-bg, #F1EDE7);
 }
 
-/* Wiping Black Curtain Layer */
-.seloom-preloader-curtain {
+.auge-loader-mask {
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
   bottom: 0;
-  width: 100%;
-  height: 0%;
   background-color: #000000;
-  will-change: height;
+  will-change: transform;
 }
 
-/* Difference Mode Content Layer (inverts dynamically across the curtain boundary) */
-.seloom-preloader-content {
+.auge-loader-center {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  mix-blend-mode: difference;
-  z-index: 2;
   pointer-events: none;
 }
 
-.seloom-preloader-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.auge-wordmark-wrap {
+  color: #ffffff;
+  clip-path: inset(0 -9999px 0 -9999px);
+  mix-blend-mode: difference;
+  overflow: visible;
+  line-height: 1;
 }
 
-.seloom-preloader-wordmark {
-  font-family: 'TBJOneMoreModernSans', sans-serif;
+.auge-wordmark-inner {
+  visibility: hidden;
+  will-change: transform;
+}
+
+.auge-loader-wordmark {
+  display: block;
+  font-family: 'greedBold', 'TBJOneMoreModernSans', sans-serif;
   font-size: clamp(52px, 11vw, 150px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 0.88;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  text-align: center;
 }
 
-.seloom-preloader-sub {
-  font-family: 'Playfair Display', 'Baskerville', 'Didot', 'Bodoni MT', Georgia, serif;
+.auge-sub-wrap {
+  color: #ffffff;
+  clip-path: inset(0 -9999px 0 -9999px);
+  mix-blend-mode: difference;
+  margin-top: 12px;
+}
+
+.auge-sub-inner {
+  visibility: hidden;
+  will-change: transform;
+  padding: max(4px, 0.5vw) 0;
+}
+
+.auge-sub-rel {
+  position: relative;
+  display: inline-block;
+}
+
+.auge-loader-sub {
+  display: block;
+  font-family: 'farnhamDisplay', 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-size: clamp(22px, 3.4vw, 44px);
-  font-weight: 400;
-  margin-top: 14px;
-  letter-spacing: 0.02em;
-  line-height: 1.1;
-  min-height: 1.2em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.seloom-preloader-counter {
+.auge-glitch-overlay {
+  pointer-events: none;
   position: absolute;
-  bottom: 38px;
+  inset: 0;
+  visibility: hidden;
+}
+
+.auge-glitch-slice {
+  position: absolute;
+  inset: 0;
+  white-space: nowrap;
+  font-family: 'farnhamDisplay', 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(22px, 3.4vw, 44px);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.auge-counter-wrap {
+  position: absolute;
+  bottom: max(24px, 2.8vw);
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'TBJOneMoreModernSans', monospace, sans-serif;
-  font-size: 13px;
+  color: #ffffff;
+  clip-path: inset(0 -9999px 0 -9999px);
+  mix-blend-mode: difference;
+}
+
+.auge-counter-inner {
+  visibility: hidden;
+  will-change: transform;
+}
+
+.auge-loader-counter {
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  font-family: 'ppNeueMontreal', -apple-system, sans-serif;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 /* 3. Central SÈLOOM Display Typography & Masked Reveal */
@@ -252,7 +308,7 @@
 }
 
 .seloom-display-wordmark {
-  font-family: 'TBJOneMoreModernSans', sans-serif;
+  font-family: 'greedBold', 'TBJOneMoreModernSans', sans-serif;
   font-size: clamp(80px, 16vw, 250px);
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -319,7 +375,7 @@
 }
 
 .auge-studio-label {
-  font-family: 'TBJOneMoreModernSans', sans-serif;
+  font-family: 'ppNeueMontreal', 'TBJOneMoreModernSans', sans-serif;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -336,7 +392,7 @@
 }
 
 .auge-studio-desc {
-  font-family: 'TBJOneMoreModernSans', sans-serif;
+  font-family: 'ppNeueMontreal', 'TBJOneMoreModernSans', sans-serif;
   font-size: clamp(14px, 1.2vw, 17px);
   font-weight: 400;
   line-height: 1.35;

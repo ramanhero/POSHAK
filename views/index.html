@@ -2496,19 +2496,41 @@ first.parentNode.insertBefore(script, first);
   data-shs-beacon-endpoint="https:/api/collect"
 ></script>
 <meta name="shopify-y" content="4d284d39-bfe1-4a27-8acc-6408c2d43460" data-expiration="1823299427000"><meta name="shopify-s" content="717bfe24-3fdf-4a7d-80f8-47ca69985698" data-expiration="1791743627000">
-<link rel="stylesheet" href="/cdn/auge/auge-hero.css?v=5.0" />
+<link rel="stylesheet" href="/cdn/auge/auge-hero.css?v=6.0" />
 </head>
 
   <body class="purity-ver_1_0_9 gradient hover_zoom product-hover_fade template-index smooth-sl motion-all_screens">
-    <!-- AUGE XP COLOR-INVERTING PRELOADER -->
-    <div id="seloom-preloader" class="seloom-preloader" aria-hidden="true">
-      <div class="seloom-preloader-curtain" id="seloom-preloader-curtain"></div>
-      <div class="seloom-preloader-content">
-        <div class="seloom-preloader-center">
-          <div class="seloom-preloader-wordmark">SÈLOOM</div>
-          <div class="seloom-preloader-sub" id="seloom-preloader-sub">SÈLOOM Fashion</div>
+    <!-- EXACT AUGE XP PRELOADER -->
+    <div id="seloom-preloader" class="auge-loader-root" aria-hidden="true">
+      <div class="auge-loader-backdrop" data-loader-backdrop></div>
+      <div class="auge-loader-mask" id="auge-loader-mask" data-loader-mask></div>
+      <div class="auge-loader-center">
+        <!-- Big Wordmark SÈLOOM -->
+        <div class="auge-wordmark-wrap">
+          <div class="auge-wordmark-inner" id="auge-loader-wordmark-inner" style="visibility: hidden;">
+            <span class="auge-loader-wordmark">SÈLOOM</span>
+          </div>
         </div>
-        <div class="seloom-preloader-counter" id="seloom-preloader-counter">000</div>
+        <!-- Subtitle SÈLOOM Fashion -->
+        <div class="auge-sub-wrap">
+          <div class="auge-sub-inner" id="auge-loader-sub-inner" style="visibility: hidden;">
+            <div class="auge-sub-rel">
+              <span class="auge-loader-sub" id="auge-loader-sub">SÈLOOM Fashion</span>
+              <span class="auge-glitch-overlay" id="auge-glitch-overlay" aria-hidden="true">
+                <span class="auge-glitch-slice">SÈLOOM Fashion</span>
+                <span class="auge-glitch-slice">SÈLOOM Fashion</span>
+                <span class="auge-glitch-slice">SÈLOOM Fashion</span>
+                <span class="auge-glitch-slice">SÈLOOM Fashion</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Transition Counter -->
+      <div class="auge-counter-wrap">
+        <div class="auge-counter-inner" id="auge-loader-counter-inner" style="visibility: hidden;">
+          <span class="auge-loader-counter" id="auge-loader-counter">000</span>
+        </div>
       </div>
     </div>
 
@@ -3472,7 +3494,8 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
         </footer>
       </div>
     </section>
-    <script src="/cdn/auge/auge-hero.js?v=5.0"></script>
+    <script src="/cdn/auge/gsap.min.js"></script>
+    <script src="/cdn/auge/auge-hero.js?v=6.0"></script>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       <section id="shopify-section-template--27862681092247__page_navigation_jdWFQd" class="shopify-section section-page-navigation">
 
