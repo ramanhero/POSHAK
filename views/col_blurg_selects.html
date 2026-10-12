@@ -2654,10 +2654,36 @@ first.parentNode.insertBefore(script, first);
     z-index: 999999 !important;
   }
 
+  .modal:not(.active),
+  cart-drawer:not(.active),
+  action-search:not(.active),
+  menu-drawer:not(.active) {
+    pointer-events: none !important;
+  }
+
+  .modal.active,
+  cart-drawer.active,
+  action-search.active,
+  menu-drawer.active {
+    pointer-events: auto !important;
+  }
+
   modal-overlay,
   .modal-overlay {
     z-index: 1 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    cursor: pointer;
+  }
+
+  .modal.active .modal-overlay,
+  cart-drawer.active .modal-overlay,
+  action-search.active .modal-overlay,
+  menu-drawer.active .modal-overlay {
     pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 0.5 !important;
   }
 
   menu-drawer .modal-inner,
