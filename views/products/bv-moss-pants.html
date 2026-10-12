@@ -1168,7 +1168,7 @@
 
 })();
 </script>
-<!-- Gokwik theme code End --><link rel="icon" type="image/png" href="/cdn/shop/files/blurg.png?crop=center&height=32&v=1776053843&width=32"><link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin><meta charset="utf-8">
+<!-- Gokwik theme code End --><link rel="icon" type="image/svg+xml" href="/cdn/auge/favicon.svg"><link rel="icon" type="image/png" href="/cdn/auge/favicon.png"><link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="view-transition" content="same-origin">
@@ -2458,6 +2458,7 @@ first.parentNode.insertBefore(script, first);
   data-shs-beacon-endpoint="https:/api/collect"
 ></script>
 <meta name="shopify-y" content="f61165be-bf36-48d8-a15d-670fe305e5b3" data-expiration="1823299503000"><meta name="shopify-s" content="ce1aebbb-9801-4586-a06f-b24af6eaf452" data-expiration="1791743703000">
+  <link rel="stylesheet" href="/cdn/auge/auge-hero.css">
 </head>
 
   <body class="purity-ver_1_0_9 gradient hover_zoom product-hover_fade template-product smooth-sl motion-all_screens">
@@ -2600,21 +2601,142 @@ first.parentNode.insertBefore(script, first);
 
 <style data-shopify>
 
-  .dark-header-logo .transparent-logo {
+  /* =========================================================
+     STICKY WHITE NAVBAR WITH SMART HIDE/SHOW ON SCROLL
+     ========================================================= */
+  #shopify-section-sections--27862675849367__header {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
+    background-color: #ffffff !important;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+    will-change: transform;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+
+  #shopify-section-sections--27862675849367__header.nav-hidden {
+    transform: translateY(-100%) !important;
+  }
+
+  #shopify-section-sections--27862675849367__header.nav-visible {
+    transform: translateY(0) !important;
+  }
+
+  #shopify-section-sections--27862675849367__header.nav-scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Force white background on header */
+  .site-header,
+  .site-header .header-wrapper,
+  .site-header .header-site {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    --color-text: #000000 !important;
+    --color-heading: #000000 !important;
+    --color-background: #ffffff !important;
+  }
+
+  /* Force black text and icons */
+  .site-header .heading-color,
+  .site-header .transparent-color,
+  .site-header .header__icon,
+  .site-header .btn-toggle,
+  .site-header .header-search,
+  .site-header .header-account-popup,
+  .site-header #cart-icon-bubble,
+  .site-header a {
+    color: #000000 !important;
+  }
+
+  .site-header svg {
+    color: #000000 !important;
+  }
+
+  .site-header svg path,
+  .site-header svg circle {
+    stroke: #000000 !important;
+  }
+
+  /* Force black BLURGVILLAGE logo */
+  .site-header .logo-normal {
     display: inline-flex !important;
   }
-  .dark-header-logo .logo-normal {
+  .site-header .transparent-logo {
     display: none !important;
+  }
+
+  /* Ensure modal drawers and overlay sections are on top of sticky header & hero */
+  .overlay-section,
+  .overlay-cart,
+  .overlay-search,
+  .shopify-section-group-overlay-group {
+    position: relative !important;
+    z-index: 999999 !important;
+  }
+
+  .modal,
+  menu-drawer,
+  cart-drawer,
+  action-search {
+    z-index: 999999 !important;
+  }
+
+  modal-overlay,
+  .modal-overlay {
+    z-index: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  menu-drawer .modal-inner,
+  cart-drawer .modal-inner,
+  action-search .modal-inner,
+  .modal .modal-inner {
+    z-index: 10 !important;
+    pointer-events: auto !important;
+  }
+
+  cart-drawer .modal-inner,
+  action-search .modal-inner {
+    background-color: #ffffff !important;
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.16) !important;
+  }
+
+  menu-drawer .modal-inner {
+    background-color: #000000 !important;
   }
   /* Always show hamburger on all screen sizes, logo centered */
   .header-wrapper {
-    --header-grid-template: 'menu logo icon' / minmax(4rem, 1fr) minmax(auto, 45%) minmax(4rem, 1fr);
+    --header-grid-template: 'menu logo icon' / 1fr auto 1fr;
+  }
+  .site-header .header-wrapper-width {
+    padding-left: 10px !important;
+    padding-right: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .site-header .header__inner {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    align-items: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
   }
   .py-1025-sp-6 {
     padding-block: 0 !important;
   }
-  .mobile-menu-toggle {
+  .site-header .mobile-menu-toggle {
     display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    justify-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   /* Hide the old desktop nav entirely */
   .header__menu {
@@ -2625,6 +2747,11 @@ first.parentNode.insertBefore(script, first);
   .header__inner .header__logo {
     display: flex;
     justify-content: center;
+    justify-self: center;
+    text-align: center;
+  }
+  .header__inner .header__action {
+    justify-self: end;
   }
   /* Hide account icon from header on mobile */
   @media (max-width: 1024px) {
@@ -2637,30 +2764,138 @@ first.parentNode.insertBefore(script, first);
     .submenu {
       margin-top: 0px !important;
     }
-  /* On desktop, constrain drawer to same width as mobile and fix submenu */
-  @media (min-width: 1025px) {
+  }
+
+  /* =========================================================
+     AUGE XP MENU DRAWER STYLING (BLACK, PPNEUEMONTREAL, NEON ACCENT)
+     ========================================================= */
+  menu-drawer .modal-inner {
+    position: fixed !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    width: clamp(340px, 34vw, 440px) !important;
+    max-width: 100vw !important;
+    border-radius: 0 16px 16px 0 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75) !important;
+    font-family: 'ppNeueMontreal', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    border-right: 1px solid rgba(223, 254, 0, 0.15) !important;
+  }
+
+  @media (max-width: 768px) {
     menu-drawer .modal-inner {
-      position: fixed !important;
-      width: 430px !important;
-      max-width: 100vw !important;
-    }
-    menu-drawer .sub-mb.drawer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
       width: 100% !important;
-      height: 100% !important;
+      border-radius: 0 !important;
     }
   }
-  
-  
-    .mobile-menu-toggle {
-      margin-left: -1rem;
-    }
-  
-  
+
+  menu-drawer .drawer__content,
+  menu-drawer .drawer__body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    font-family: 'ppNeueMontreal', sans-serif !important;
+  }
+
+  menu-drawer .sub-mb.drawer {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Close Button - Auge XP rotating neon yellow cross */
+  menu-drawer .modal__close {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    color: #dffe00 !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: background 0.25s ease, border-color 0.25s ease !important;
+  }
+
+  menu-drawer .modal__close svg {
+    width: 14px !important;
+    height: 14px !important;
+    color: #dffe00 !important;
+    stroke: #dffe00 !important;
+    fill: #dffe00 !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  menu-drawer .modal__close:hover {
+    background: rgba(223, 254, 0, 0.15) !important;
+    border-color: #dffe00 !important;
+  }
+
+  menu-drawer .modal__close:hover svg {
+    transform: rotate(360deg) !important;
+  }
+
+  /* Main Menu Items */
+  menu-drawer .menu__item,
+  menu-drawer .header__menu-mobile a,
+  menu-drawer summary.menu__item {
+    font-family: 'ppNeueMontreal', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.35 !important;
+    color: #ffffff !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+  }
+
+  menu-drawer .menu__item:hover,
+  menu-drawer .header__menu-mobile a:hover,
+  menu-drawer summary.menu__item:hover {
+    color: #dffe00 !important;
+    transform: translateX(6px) !important;
+  }
+
+  /* Submenu links */
+  menu-drawer ul.menu,
+  menu-drawer .submenu,
+  menu-drawer .sub-children-menu,
+  menu-drawer details[open] > .menu,
+  menu-drawer details .menu,
+  menu-drawer .drawer__content [class*="color-scheme-"] {
+    background-color: transparent !important;
+    background: transparent !important;
+    --color-background: transparent !important;
+  }
+
+  menu-drawer .submenu .menu__item,
+  menu-drawer .menu__item.level-2,
+  menu-drawer .sub-children-menu .menu__item,
+  menu-drawer .menu-link a,
+  menu-drawer .menu-link .menu__item {
+    font-family: 'ppNeueMontreal', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.72) !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.02em !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    display: block !important;
+  }
+
+  menu-drawer .submenu .menu__item:hover,
+  menu-drawer .menu__item.level-2:hover,
+  menu-drawer .sub-children-menu .menu__item:hover,
+  menu-drawer .menu-link a:hover {
+    color: #dffe00 !important;
+    transform: translateX(4px) !important;
+  }
+
+  menu-drawer svg {
+    color: #dffe00 !important;
+  }
 
 
   /* ---- Accordion-style single-page menu ---- */
@@ -2746,10 +2981,10 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
 </style>
 <header
   is="site-header"
-  data-sticky-type="always"
+  data-sticky-type="none"
   data-menu-trigger="hover"
   data-dropdowns-animation="down-to-up"
-  class="header-site header-wrapper p-min relative z-10 transition-short  color-scheme-4a4a3e14-571e-4a2f-aa65-1158b87a9b0e gradient border-bottom"
+  class="header-site header-wrapper p-min relative transition-short"
   style="--section-pt: 12;--section-pb: 12;--gap: 1rem; --gap-desktop: var(--sp-6);"
 >
   <div class="header-wrapper-width full-width">
@@ -2757,27 +2992,30 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
       class="header__inner grid gap logo-center menu-mobile-left align-center"
       style="--gap: 12px;"
     >
-      <!-- Hamburger toggle: always visible on all screen sizes -->
-      <toggle-menu class="relative flex content-center mobile-menu-toggle fs-0 wh-44">
+      <!-- 3-line menu button from hero section in navbar left corner -->
+      <toggle-menu class="relative flex align-center mobile-menu-toggle pointer" style="justify-content: flex-start !important; margin: 0; padding: 0;" aria-label="Toggle menu">
         <button
-          class="btn-reset btn-toggle text-start pointer heading-color transparent-color flex header__icon"
+          type="button"
+          class="btn-reset btn-toggle auge-nav-menu-btn text-start pointer"
           aria-label="Toggle menu"
         >
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="rtl-mirror">
-            <path d="M13 14.5H31" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M13 19.5H22.47" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M13 24.5H31" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M13 29.5H22.47" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <span class="auge-menu-bar"></span>
+          <span class="auge-menu-bar"></span>
+          <span class="auge-menu-bar"></span>
         </button>
-      </toggle-menu><div class="header__logo inline-flex align-center color-inherit text-center content-center dark-header-logo">
+      </toggle-menu><h1 class="visually-hidden">SÈLOOM</h1><div class="header__logo inline-flex align-center color-inherit text-center content-center">
   <a
     href="/"
     class="header__heading-link no-underline h3 inline-flex align-center transparent-color"
-    aria-label="BLURGVILLAGE"
-  ><img src="/cdn/shop/files/IMG_4025.png?v=1784801761&amp;width=276" alt="BLURGVILLAGE" srcset="/cdn/shop/files/IMG_4025.png?v=1784801761&amp;width=100 100w, /cdn/shop/files/IMG_4025.png?v=1784801761&amp;width=200 200w" width="92" height="36.684999999999995" class="header__heading-logo transparent-logo" sizes="92px">
-<img src="/cdn/shop/files/BLURGVILLAGE_LOGO_f5b5e1be-b25f-4efc-bc4b-877bd09d2808.webp?v=1778045524&amp;width=276" alt="BLURGVILLAGE" srcset="/cdn/shop/files/BLURGVILLAGE_LOGO_f5b5e1be-b25f-4efc-bc4b-877bd09d2808.webp?v=1778045524&amp;width=100 100w, /cdn/shop/files/BLURGVILLAGE_LOGO_f5b5e1be-b25f-4efc-bc4b-877bd09d2808.webp?v=1778045524&amp;width=200 200w" width="92" height="36.684999999999995" class="header__heading-logo logo-normal hidden" sizes="92px">
-</a>
+    aria-label="SÈLOOM"
+  >
+    <img
+      src="/cdn/auge/seloom-logo.png"
+      alt="SÈLOOM"
+      class="header__heading-logo logo-normal"
+      style="height: 42px; max-height: 46px; width: auto; object-fit: contain; display: block; border-radius: 8px;"
+    />
+  </a>
 </div><svg aria-hidden="true" focusable="false" role="presentation" class="hidden" hidden>
         <symbol id="icon-back" viewBox="0 0 6 11" fill="none">
           <path d="M4.7193 10.7605C4.85965 10.9202 5.03509 11 5.24561 11C5.45614 11 5.63158 10.9202 5.77193 10.7605C5.92398 10.6131 6 10.435 6 10.2261C6 10.005 5.92398 9.81463 5.77193 9.65494L1.80702 5.49079L5.77193 1.32663C5.92398 1.17923 6 1.00112 6 0.792295C6 0.571189 5.92398 0.380793 5.77193 0.221106C5.63158 0.0737018 5.45614 0 5.24561 0C5.03509 0 4.85965 0.0737018 4.7193 0.221106L0.22807 4.93802C0.0760236 5.09771 0 5.28811 0 5.50921C0 5.71803 0.0760236 5.89615 0.22807 6.04355L4.7193 10.7605Z" fill="currentColor"/>
@@ -2878,7 +3116,7 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
                                     <use href="#icon-arrow-down" />
                                   </svg>
                             </summary>
-<ul class="menu list-unstyled color-scheme-4a4a3e14-571e-4a2f-aa65-1158b87a9b0e px-gutter-x px-gutter-x" style="padding: 0px 10px;">
+<ul class="menu list-unstyled px-gutter-x" style="padding: 0px 10px; background: transparent !important;">
     
       <li class="menu-link overflow-hidden"><a
             class="menu__item heading-color  fs-14 fs-14 py-sp-2 block outlined-border relative"
@@ -2914,7 +3152,7 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
                                     <use href="#icon-arrow-down" />
                                   </svg>
                             </summary>
-<ul class="menu list-unstyled color-scheme-4a4a3e14-571e-4a2f-aa65-1158b87a9b0e px-gutter-x px-gutter-x" style="padding: 0px 10px;">
+<ul class="menu list-unstyled px-gutter-x" style="padding: 0px 10px; background: transparent !important;">
     
       <li class="menu-link overflow-hidden"><a
             class="menu__item heading-color  fs-14 fs-14 py-sp-2 block outlined-border relative"
@@ -3083,33 +3321,143 @@ menu-drawer .details-normal[open] > summary .icon-rotate {
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  if (!document.querySelector('#locksmith-content')) return;
+(() => {
+  const headerSection = document.getElementById('shopify-section-sections--27862675849367__header');
+  const heroSection = document.getElementById('auge-xp-hero-section');
+  if (!headerSection) return;
 
-  const header = document.querySelector('.header-wrapper');
-  if (!header) return;
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  const SCROLL_THRESHOLD = 6;
 
-  /* USE DARK COLOR SCHEME */
-  [...header.classList].forEach(c => {
-    if (c.startsWith('color-')) header.classList.remove(c);
+  function getHeroHeight() {
+    return heroSection ? heroSection.offsetHeight : 0;
+  }
+
+  let userHasScrolled = false;
+  ['wheel', 'touchmove', 'keydown', 'pointerdown'].forEach(evt => {
+    window.addEventListener(evt, () => { userHasScrolled = true; }, { passive: true, capture: true });
   });
 
-  header.classList.add('color-scheme-4a4a3e14-571e-4a2f-aa65-1158b87a9b0e');
+  function updateNavbar() {
+    const currentScrollY = window.scrollY;
+    const heroHeight = getHeroHeight();
+    const diff = currentScrollY - lastScrollY;
 
-  /* USE DARK HEADER LOGO */
-  
-    const logo = header.querySelector('.logo-normal');
-
-    if (logo) {
-      logo.src = '/cdn/shop/files/IMG_4025.png?v=1784801761&width=600';
-      logo.removeAttribute('srcset');
-      logo.style.height = 'auto';
+    // Don't hide if menu drawer modal is open
+    const isDrawerOpen = document.querySelector('menu-drawer.active-modal-js.is-open') ||
+                         document.querySelector('menu-drawer[open]');
+    if (isDrawerOpen) {
+      headerSection.classList.remove('nav-hidden');
+      headerSection.classList.add('nav-visible');
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
     }
-  
-});
+
+    // Keep visible if user hasn't physically scrolled yet (e.g. programmatic autofocus on page load)
+    if (!userHasScrolled && currentScrollY > 0) {
+      headerSection.classList.remove('nav-hidden');
+      headerSection.classList.add('nav-visible');
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    if (currentScrollY <= 40) {
+      // At the very top of page: always visible and no scroll shadow
+      headerSection.classList.remove('nav-hidden', 'nav-scrolled');
+      headerSection.classList.add('nav-visible');
+    } else {
+      headerSection.classList.add('nav-scrolled');
+
+      if (diff > SCROLL_THRESHOLD) {
+        // Scrolling DOWN: hide
+        headerSection.classList.remove('nav-visible');
+        headerSection.classList.add('nav-hidden');
+      } else if (diff < -SCROLL_THRESHOLD) {
+        // Scrolling UP: reveal
+        headerSection.classList.remove('nav-hidden');
+        headerSection.classList.add('nav-visible');
+      }
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // AUGE XP: HOVER TO OPEN MENU & ANIMATE BARS
+  (function initAugeHoverMenu() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    if (!toggle) return;
+
+    let hoverCloseTimer = null;
+
+    function openMenu() {
+      if (hoverCloseTimer) {
+        clearTimeout(hoverCloseTimer);
+        hoverCloseTimer = null;
+      }
+      const existingDrawer = document.querySelector('menu-drawer.active-modal-js');
+      if (!existingDrawer) {
+        const btn = toggle.querySelector('button');
+        if (btn) btn.click();
+      }
+    }
+
+    function scheduleCloseMenu() {
+      if (hoverCloseTimer) clearTimeout(hoverCloseTimer);
+      hoverCloseTimer = setTimeout(() => {
+        const drawer = document.querySelector('menu-drawer.active-modal-js');
+        if (drawer) {
+          const closeBtn = drawer.querySelector('button[is="button-close-model"]') || drawer.querySelector('.modal__close');
+          if (closeBtn) closeBtn.click();
+        }
+      }, 350);
+    }
+
+    toggle.addEventListener('mouseenter', openMenu);
+    toggle.addEventListener('mouseleave', (e) => {
+      const drawer = document.querySelector('menu-drawer.active-modal-js');
+      if (drawer && drawer.contains(e.relatedTarget)) return;
+      scheduleCloseMenu();
+    });
+
+    document.addEventListener('mouseover', (e) => {
+      const drawer = document.querySelector('menu-drawer.active-modal-js');
+      if (drawer && drawer.contains(e.target)) {
+        if (hoverCloseTimer) {
+          clearTimeout(hoverCloseTimer);
+          hoverCloseTimer = null;
+        }
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const drawer = document.querySelector('menu-drawer.active-modal-js');
+      if (drawer && drawer.contains(e.target)) {
+        if (!drawer.contains(e.relatedTarget) && !toggle.contains(e.relatedTarget)) {
+          scheduleCloseMenu();
+        }
+      }
+    });
+  })();
+
+  updateNavbar();
+})();
 </script>
 
-<style> #shopify-section-sections--27862675849367__header .full-width {margin-right: 8px; margin-left: 8px;} #shopify-section-sections--27862675849367__header .header-wrapper {border: none;} </style></div>
+<style>
+  #shopify-section-sections--27862675849367__header .full-width { margin-right: 0 !important; margin-left: 0 !important; max-width: 100% !important; }
+  #shopify-section-sections--27862675849367__header .header-wrapper { border: none; }
+</style></div>
 <!-- END sections: header-group -->
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       <section id="shopify-section-template--27862681616535__page_navigation_wnkLr4" class="shopify-section section-page-navigation">

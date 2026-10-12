@@ -3089,3 +3089,197 @@ input.search__input {
   inset-block-start: 50%;
   transform: translate(calc(-50% * var(--flow-direction)), -50%);
 }
+
+/* =========================================================
+   SÈLOOM GLOBAL DESIGN SYSTEM & TYPOGRAPHY
+   ========================================================= */
+
+@font-face {
+  font-family: 'ppNeueMontreal';
+  src: url('/cdn/auge/PPNeueMontreal_Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ppNeueMontreal';
+  src: url('/cdn/auge/PPNeueMontreal_Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TBJOneMoreModernSans';
+  src: url('/cdn/auge/TBJOneMoreModernSans.woff2') format('woff2'),
+       url('/cdn/auge/TBJOneMoreModernSans.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 1. Global Background #F1EDE7 */
+html,
+body,
+#MainContent,
+.content-for-layout,
+.gradient,
+main,
+section,
+[class*="color-scheme-"] {
+  background-color: #F1EDE7 !important;
+  color: #111111;
+}
+
+/* 2. Global Switchblade Typography */
+body,
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5, .h6,
+:where(h1), :where(h2), :where(h3), :where(h4), :where(h5), :where(h6),
+.seloom-display-wordmark,
+.header__menu-item, .menu-item,
+.btn, .button, button, input, select, textarea,
+.collection-showcase__topbar-heading, .collection-showcase__topbar-btn,
+.collection-showcase__label, .collection-showcase__badge, .collection-showcase__promo-heading,
+.scm-tab, .tab-title, .product__title, .price, .badge,
+.card__heading, .product-card__title,
+.footer__block-heading, .menu-list-footer a,
+.drawer__heading, .product__tax,
+.product-item__title, .product__info-container * {
+  font-family: 'TBJOneMoreModernSans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* 3. Brunello Cucinelli Product Hover Zoom */
+.collection-showcase__tile-img,
+.collection-showcase__promo,
+.card__media,
+.card-wrapper .media,
+.product-item .media,
+.product-card__image-wrapper,
+.product__media-item,
+.product__media {
+  overflow: hidden !important;
+}
+
+.collection-showcase__tile-img img,
+.collection-showcase__promo-img,
+.card__media img,
+.card-wrapper .media img,
+.product-item img,
+.product-card img,
+.product-item__media img,
+.card-wrapper:hover .card__media img,
+.product-item:hover img,
+.product-card:hover img {
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  will-change: transform;
+}
+
+.collection-showcase__tile:hover .collection-showcase__tile-img img,
+.collection-showcase__promo:hover .collection-showcase__promo-img,
+.card-wrapper:hover .card__media img,
+.card:hover .card__media img,
+.product-item:hover img,
+.product-card:hover img {
+  transform: scale(1.06) !important;
+}
+
+/* 4. Universal Drawer Overlay Fix */
+.overlay-section,
+.overlay-cart,
+.overlay-search,
+.shopify-section-group-overlay-group {
+  position: relative !important;
+  z-index: 999999 !important;
+}
+
+.modal,
+menu-drawer,
+cart-drawer,
+action-search {
+  z-index: 999999 !important;
+}
+
+modal-overlay,
+.modal-overlay {
+  z-index: 1 !important;
+  pointer-events: auto !important;
+}
+
+menu-drawer .modal-inner,
+cart-drawer .modal-inner,
+action-search .modal-inner,
+.modal .modal-inner {
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+cart-drawer .modal-inner,
+action-search .modal-inner {
+  background-color: #ffffff !important;
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.16) !important;
+}
+
+menu-drawer .modal-inner {
+  background-color: #000000 !important;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 5. Auge XP Navbar Menu Button */
+.auge-nav-menu-btn {
+  background-color: #000000 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  width: 58px !important;
+  height: 38px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+  position: relative !important;
+}
+
+.auge-nav-menu-btn:hover,
+.mobile-menu-toggle:hover .auge-nav-menu-btn {
+  transform: scale(1.04) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28) !important;
+}
+
+.auge-nav-menu-btn .auge-menu-bar {
+  display: block !important;
+  width: 28px !important;
+  height: 2px !important;
+  background-color: #dffe00 !important;
+  border-radius: 1px !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease !important;
+  will-change: transform, opacity;
+}
+
+.auge-nav-menu-btn:hover .auge-menu-bar:nth-child(1),
+.mobile-menu-toggle:hover .auge-nav-menu-btn .auge-menu-bar:nth-child(1) {
+  transform: translateX(-48px) !important;
+  opacity: 0 !important;
+  transition-delay: 0s !important;
+}
+
+.auge-nav-menu-btn:hover .auge-menu-bar:nth-child(2),
+.mobile-menu-toggle:hover .auge-nav-menu-btn .auge-menu-bar:nth-child(2) {
+  transform: translateX(-48px) !important;
+  opacity: 0 !important;
+  transition-delay: 0.05s !important;
+}
+
+.auge-nav-menu-btn:hover .auge-menu-bar:nth-child(3),
+.mobile-menu-toggle:hover .auge-nav-menu-btn .auge-menu-bar:nth-child(3) {
+  transform: translateX(-48px) !important;
+  opacity: 0 !important;
+  transition-delay: 0.1s !important;
+}
+
