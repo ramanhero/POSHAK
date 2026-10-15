@@ -1,4 +1,4 @@
-/* SÈLOOM HERO SECTION - CURSOR IMAGE TRAIL & CENTER TYPOGRAPHY */
+/* POSHĀK HERO SECTION - CURSOR IMAGE TRAIL & CENTER TYPOGRAPHY */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap');
 
 @font-face {
@@ -286,7 +286,7 @@
   text-transform: uppercase;
 }
 
-/* 3. Central SÈLOOM Display Typography & Masked Reveal */
+/* 3. Central POSHĀK Display Typography & Masked Reveal */
 .seloom-hero-center {
   position: absolute;
   inset: 0;

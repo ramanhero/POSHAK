@@ -1,29 +1,38 @@
 /**
- * SÈLOOM HERO & PRELOADER - EXACT AUGE XP ENGINE
+ * POSHĀK HERO & PRELOADER - EXACT AUGE XP ENGINE
  * Complete replication of https://auge-xp.com/ preloader & text reveals using GSAP
  */
 
 (function () {
   'use strict';
 
-  // SÈLOOM Collection Photos for Cursor Image Trail
+  // POSHĀK Clothing Model Photos for Cursor Image Trail (Extracted from Unsplash)
   const CLOTHES = [
-    '/cdn/shop/files/WEBP_File_5699.webp',
-    '/cdn/shop/files/WEBP_File_5689.webp',
-    '/cdn/shop/files/WEBP_File_5759.webp',
-    '/cdn/shop/files/WEBP_File_5739.webp',
-    '/cdn/shop/files/WEBP_File_5749_f69d34a1-cd65-48ba-9c36-d8542d5b4d2d.webp',
-    '/cdn/shop/files/WEBP_File_5719.webp',
-    '/cdn/shop/files/WEBP_File_5709.webp',
-    '/cdn/shop/files/WEBP_File_5332.webp',
-    '/cdn/shop/files/WEBP_File_5681.webp',
-    '/cdn/shop/files/WEBP_File_5701.webp',
-    '/cdn/shop/files/WEBP_File_5721.webp',
-    '/cdn/shop/files/WEBP_File_5740.webp',
-    '/cdn/shop/files/WEBP_File_5755.webp',
-    '/cdn/shop/files/WEBP_File_5813.webp',
-    '/cdn/shop/files/WEBP_File_5843.webp',
-    '/cdn/shop/files/WEBP_File_5906.webp'
+    '/cdn/unsplash_clothing_models/model_01.webp',
+    '/cdn/unsplash_clothing_models/model_02.webp',
+    '/cdn/unsplash_clothing_models/model_03.webp',
+    '/cdn/unsplash_clothing_models/model_04.webp',
+    '/cdn/unsplash_clothing_models/model_05.webp',
+    '/cdn/unsplash_clothing_models/model_06.webp',
+    '/cdn/unsplash_clothing_models/model_07.webp',
+    '/cdn/unsplash_clothing_models/model_08.webp',
+    '/cdn/unsplash_clothing_models/model_09.webp',
+    '/cdn/unsplash_clothing_models/model_10.webp',
+    '/cdn/unsplash_clothing_models/model_11.webp',
+    '/cdn/unsplash_clothing_models/model_12.webp',
+    '/cdn/unsplash_clothing_models/model_13.webp',
+    '/cdn/unsplash_clothing_models/model_14.webp',
+    '/cdn/unsplash_clothing_models/model_15.webp',
+    '/cdn/unsplash_clothing_models/model_16.webp',
+    '/cdn/unsplash_clothing_models/model_17.webp',
+    '/cdn/unsplash_clothing_models/model_18.webp',
+    '/cdn/unsplash_clothing_models/model_19.webp',
+    '/cdn/unsplash_clothing_models/model_20.webp',
+    '/cdn/unsplash_clothing_models/model_21.webp',
+    '/cdn/unsplash_clothing_models/model_22.webp',
+    '/cdn/unsplash_clothing_models/model_23.webp',
+    '/cdn/unsplash_clothing_models/model_24.webp',
+    '/cdn/unsplash_clothing_models/model_25.webp'
   ];
 
   // Preload images immediately
@@ -283,7 +292,7 @@
     // 2. Subtitle slides up into view
     enterTl.to(subInner, { yPercent: 0, duration: 1.0, ease: 'expoOut' }, 0.25);
     enterTl.add(function () {
-      runTextScramble(subEl, 'SÈLOOM Fashion', 950, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+      runTextScramble(subEl, 'POSHĀK Fashion', 950, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
     }, 0.25);
 
     // 3. Counter slides up into view
@@ -330,10 +339,10 @@
 
     heroWrapper.classList.add('is-revealed');
 
-    // Scramble decrypt studio label "SÈLOOM ORIGINALS®"
+    // Scramble decrypt studio label "POSHĀK ORIGINALS®"
     const labelEl = document.getElementById('auge-studio-label');
     if (labelEl) {
-      runTextScramble(labelEl, 'SÈLOOM ORIGINALS®', 950);
+      runTextScramble(labelEl, 'POSHĀK ORIGINALS®', 950);
     }
   }
 
@@ -371,7 +380,7 @@
 
       const img = document.createElement('img');
       img.src = CLOTHES[imgIndex];
-      img.alt = 'SÈLOOM Collection';
+      img.alt = 'POSHĀK Collection';
       img.draggable = false;
       card.appendChild(img);
 
